@@ -1,17 +1,22 @@
-import { TestBed, async } from '@angular/core/testing';
+import { async, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+
+function stupidNull() {
+  return null;
+}
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
       ],
     }).compileComponents();
   }));
 
   it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
+    fixture.changeDetectorRef = stupidNull();
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });
